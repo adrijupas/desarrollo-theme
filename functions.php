@@ -56,24 +56,56 @@ add_action('init','agregar_menu');
 
 function mostrar_menu(){
     wp_nav_menu([
-        'principal'=>'principal',
+        'theme_location'=>'principal',
         'container'=>'ul',
         'container_class'=>'nav-link',
          'container_id'=>'principal'  
      ]);
     
 }
+
 // Terminamos el menu principal
 
 
 
+// thumbnails
+
+
+add_theme_support( 'post-thumbnails' );
+
+
+// encabezado header
+
+function imagen_custom_header() {
+    $args = array(
+        'default-image'  	=> get_template_directory_uri() . 'img/bmwx8.jpg',
+        'default-text-color' => '000',
+        'width'          	=> 1000,
+        'height'         	=> 250,
+        'flex-width'     	=> true,
+        'flex-height'    	=> true,
+    );
+    add_theme_support( 'custom-header', $args );
+}
+add_action( 'after_setup_theme', 'imagen_custom_header' );
 
 
 
+// widgets sidebar
 
-
-
-
+// Registramos un nueva (o nuevas) zona de widgets simple denominada 'sidebar'
+function agregar_soporte_widgets() {
+    register_sidebar( array(
+                    'name'          => 'Sidebar',
+                    'id'            => 'sidebar',
+                    'before_widget' => '<div>',
+                    'after_widget'  => '</div>',
+                    'before_title'  => '<h2>',
+                    'after_title'   => '</h2>',
+    ) );
+}
+// Hook o gancho del widget para que se inicie
+add_action( 'widgets_init', 'agregar_soporte_widgets' );
 
 
 

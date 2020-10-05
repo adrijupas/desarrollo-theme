@@ -8,4 +8,18 @@ Tags: Tema dabuting
 
 */
 
+#menu-principal li{
+    display: inline-block;
+    vertical-align: center;
+}
+
+#menu-principal li a{
+    color: whitesmoke;
+}
+
+
+ .card{
+     height: 100%;
+ }
+
 

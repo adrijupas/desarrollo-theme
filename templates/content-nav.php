@@ -7,9 +7,9 @@
         <ul class="navbar-nav mr-auto">
           <?php mostrar_menu(); ?>
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <form action='<?php bloginfo('url') ?>' method="get" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" name="s" id="search" placeholder="Buscar" aria-label="Buscar" value="<?php the_search_query(); ?>">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
       </div>
     </nav>
